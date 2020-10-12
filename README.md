@@ -4,4 +4,4 @@ My code for the Space Cadets Challenges
 
 Challenge 2 Notes:
 
--Source BareBones code must be in file named "Sourcecode.txt"
+- Source BareBones code must be in file named "Sourcecode.txt"
