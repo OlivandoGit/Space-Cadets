@@ -3,7 +3,7 @@ My code for the Space Cadets Challenges
 
 **Challenge 1 Notes:**
 
-Write a Web service to Fetch an email ID and get a lecturers's name (from https://www.ecs.soton.ac.uk/people/)
+Write a Web service to Fetch an email ID and get a faculty memeber's name (from https://www.ecs.soton.ac.uk/people/)
 
 
 **Challenge 2 Notes:**
