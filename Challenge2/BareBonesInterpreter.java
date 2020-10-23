@@ -1,11 +1,13 @@
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class BareBonesInterpreter {
-    public static void main(String[] args) {
-        HashMap<Integer, String> lines = new HashMap<Integer, String>();
+    public static void main(String[] args){
+        List<String> lines = new ArrayList<String>();
 
         lines = getfile(lines);
 
@@ -14,84 +16,77 @@ public class BareBonesInterpreter {
         vars = execute(lines, vars);
 
         System.out.println(vars);
-
     }
 
-    public static HashMap<Integer, String> getfile(HashMap<Integer, String> lines) {
+    public static List<String> getfile(List<String> lines){
         try {
-            int PC = 0;
-            File sourcecode = new File("Sourcecode.txt");
+            File sourcecode = new File("sourcecode.txt");
 
             Scanner reader = new Scanner(sourcecode);
             
-            while (reader.hasNextLine()) {
+            while (reader.hasNextLine()){
                 String data = reader.nextLine();
-                lines.put(PC, data);
-
-                PC ++;
+                lines.add(data);
             }
 
             reader.close();
-
         } 
-        catch (FileNotFoundException e) {
+        catch (FileNotFoundException e){
             System.out.println(e);
         }
 
         return lines;
     }
 
-    public static HashMap<String, Integer> execute(HashMap<Integer, String> lines, HashMap<String, Integer> vars) {
+    public static HashMap<String, Integer> execute(List<String> lines, HashMap<String, Integer> vars){
         int PC = 0;
 
-        while (PC < lines.size()) {
+        while (PC < lines.size()){
             String line = lines.get(PC);
             String[] parts = line.split(" ");
 
-            if (parts.length == 2) {
+            if (parts.length == 2){
                 String var = parts[1].replace(";", "");
                 
-                if (parts[0].equals("clear")) {
-                    if (vars.containsKey(var)) {
+                if (parts[0].equals("clear")){
+                    if (vars.containsKey(var)){
                         vars.remove(var);
                     }
                     vars.put(var, 0);
                 } 
-                else {
+                else{
                     int current = vars.get(var);
-                    vars.remove(var);
 
-                    if (parts[0].equals("incr")) {
+                    if (parts[0].equals("incr")){
                         vars.put(var, current + 1);
                     }
-                    else if (parts[0].equals("decr")) {
+                    else if (parts[0].equals("decr")){
                         vars.put(var, current - 1);
                     }
                 }
-
             } 
-            else if (parts[0].equals("while")) {
-                HashMap<Integer, String> lines2 = new HashMap<Integer, String>();
 
-                int newline = 0;
+            else if (parts[0].equals("while")){
+                List<String> lines2 = new ArrayList<String>();
+
                 int endwhile = PC; 
 
                 for (int i = PC + 1; i < lines.size(); i ++){
                     String data = lines.get(i);
 
-                    if (data.equals("end;")) {
+                    if (data.equals("end;")){
                         endwhile = i;
                         break;
                     } 
-                    else {
-                        lines2.put(newline, data.trim());
+                    else{
+                        lines2.add(data.trim());
                     }
-                    newline ++;
                 }
 
                 while (vars.get(parts[1]) != Integer.parseInt(parts[3])){
                     vars = execute(lines2, vars);
                 }
+
                 PC = endwhile;
             }
             PC ++;
