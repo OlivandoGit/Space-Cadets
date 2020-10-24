@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class BareBonesInterpreter {
+public class BareBonesInterpreter{
     public static void main(String[] args){
         List<String> lines = new ArrayList<String>();
 
@@ -21,7 +21,7 @@ public class BareBonesInterpreter {
     public static List<String> getfile(List<String> lines){
         try {
             File sourcecode = new File("sourcecode.txt");
-
+ 
             Scanner reader = new Scanner(sourcecode);
             
             while (reader.hasNextLine()){
@@ -45,26 +45,24 @@ public class BareBonesInterpreter {
             String line = lines.get(PC);
             String[] parts = line.split(" ");
 
-            if (parts.length == 2){
+            if (parts[0].equals("clear")){
                 String var = parts[1].replace(";", "");
                 
-                if (parts[0].equals("clear")){
-                    if (vars.containsKey(var)){
-                        vars.remove(var);
-                    }
-                    vars.put(var, 0);
-                } 
-                else{
-                    int current = vars.get(var);
-
-                    if (parts[0].equals("incr")){
-                        vars.put(var, current + 1);
-                    }
-                    else if (parts[0].equals("decr")){
-                        vars.put(var, current - 1);
-                    }
+                if (vars.containsKey(var)){
+                    vars.remove(var);
                 }
-            } 
+                vars.put(var, 0);
+            }
+
+            else if (parts[0].equals("incr")){
+                String var = parts[1].replace(";", "");
+                vars.put(var, vars.get(var) + 1);
+            }
+
+            else if (parts[0].equals("decr")){
+                String var = parts[1].replace(";", "");
+                vars.put(var, vars.get(var) - 1);
+            }
 
             else if (parts[0].equals("while")){
                 List<String> lines2 = new ArrayList<String>();

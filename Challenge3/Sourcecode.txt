@@ -1,0 +1,8 @@
+create new;
+
+update new to 13;
+
+while true;
+    update new to new + 3;
+    break;
+endwhile;

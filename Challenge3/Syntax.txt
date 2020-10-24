@@ -1,0 +1,17 @@
+string : ^[A-Za-z0-9]+$
+
+Integer : ^[0-9]+;$
+
+create : ^create [A-Za-z0-9]+;$
+
+update : ^update [A-Za-z0-9]+ to [A-Za-z0-9]+( ([+]|[-]|[/]|[*]|[%]|[//]) [A-Za-z0-9]+)?;$
+
+if : ^if [A-Za-z0-9]+ (<<|>>|<=|>=|==|!=) [A-Za-z0-9]+;$
+
+endif : ^endif;$
+
+while : ^(while [A-Za-z0-9]+ (<<|>>|<=|>=|==|!=) [A-Za-z0-9]+;)|(while [A-Za-z0-9]+;)|(while true);$
+
+endwhile : ^endwhile;$
+
+break : ^break;$
