@@ -14,7 +14,7 @@ Additional notes:
  - BareBones Source code must be in file named [Sourcecode.txt](https://github.com/OlivandoGit/Space-Cadets/blob/master/Challenge2/Sourcecode.txt) and be in the same directory as interpreter.
  - BareBones interpreter does not yet include any syntax or error checking added in challenge 3.
 
-**Challenge 2 Notes:**
+**Challenge 3 Notes:**
 
 Extend the bare bones language interpreter
 
