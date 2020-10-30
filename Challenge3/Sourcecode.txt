@@ -1,8 +1,21 @@
-create new;
+define test(hello, world):
+    update new to 46
+enddefine
 
-update new to 13;
+create new
 
-while true;
-    update new to new + 3;
-    break;
-endwhile;
+update new to 2
+
+if 2 == new:
+    update new to 3
+elif new > 4:
+    update new to 4
+else:
+    update new to 5
+endif
+
+while new < 13:
+    update new to new + 1
+endwhile
+
+complete test(hello, world)

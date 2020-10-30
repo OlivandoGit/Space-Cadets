@@ -1,17 +1,25 @@
-string : ^[A-Za-z0-9]+$
+string : ^[A-Za-z]+[0-9]*$
 
-Integer : ^[0-9]+;$
+integer : ^[0-9]+$
 
-create : ^create [A-Za-z0-9]+;$
+create : ^create [A-Za-z]+[0-9]*$
 
-update : ^update [A-Za-z0-9]+ to [A-Za-z0-9]+( ([+]|[-]|[/]|[*]|[%]|[//]) [A-Za-z0-9]+)?;$
+update : ^update [A-Za-z]+[0-9]* to ([A-Za-z]+[0-9]*( ([+]|[-]|[/]|[*]|[%]|[**]) ([A-Za-z]+[0-9]*|[0-9]+))?|[0-9]+)$
 
-if : ^if [A-Za-z0-9]+ (<<|>>|<=|>=|==|!=) [A-Za-z0-9]+;$
+if : ^if ([A-Za-z]+[0-9]*|[0-9]+) (<|>|<=|>=|==|!=) ([A-Za-z]+[0-9]*|[0-9]+):$
 
-endif : ^endif;$
+elif : ^elif ([A-Za-z]+[0-9]*|[0-9]+) (<|>|<=|>=|==|!=) ([A-Za-z]+[0-9]*|[0-9]+):$
 
-while : ^(while [A-Za-z0-9]+ (<<|>>|<=|>=|==|!=) [A-Za-z0-9]+;)|(while [A-Za-z0-9]+;)|(while true);$
+else : ^else:$
 
-endwhile : ^endwhile;$
+endif : ^endif$
 
-break : ^break;$
+while : ^while [A-Za-z]+[0-9]* (<|>|<=|>=|==|!=) ([A-Za-z]+[0-9]*|[0-9]+):$
+
+endwhile : ^endwhile$
+
+define : ^define [A-Za-z]+[0-9]*\([A-Za-z]+[0-9]*(, [A-Za-z]+[0-9]*)*\):$
+
+enddefine : ^enddefine$
+
+complete : ^complete [A-Za-z]+[0-9]*\([A-Za-z]+[0-9]*(, [A-Za-z]+[0-9]*)*\)$
