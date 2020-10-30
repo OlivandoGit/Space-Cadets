@@ -12,4 +12,12 @@ Build a bare bones interpreter to take text file and produce an output
 
 Additional notes:
  - BareBones Source code must be in file named [Sourcecode.txt](https://github.com/OlivandoGit/Space-Cadets/blob/master/Challenge2/Sourcecode.txt) and be in the same directory as interpreter.
- - BareBones interpreter does not yet include any syntax or error checking.
+ - BareBones interpreter does not yet include any syntax or error checking added in challenge 3.
+
+**Challenge 2 Notes:**
+
+Extend the bare bones language interpreter
+
+ - Run program Main.java to run this challenge
+ - Source code must be in file named [Sourcecode.txt](https://github.com/OlivandoGit/Space-Cadets/blob/master/Challenge3/Sourcecode.txt) and be in the same directory as interpreter.
+ - Syntax must be in file named [Syntax.txt](https://github.com/OlivandoGit/Space-Cadets/blob/master/Challenge3/Syntax.txt) and be in the same directory as Main.java
