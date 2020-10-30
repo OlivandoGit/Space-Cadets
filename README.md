@@ -18,6 +18,7 @@ Additional notes:
 
 Extend the bare bones language interpreter
 
+Additional notes:
  - Run program Main.java to run this challenge
  - Source code must be in file named [Sourcecode.txt](https://github.com/OlivandoGit/Space-Cadets/blob/master/Challenge3/Sourcecode.txt) and be in the same directory as interpreter.
  - Syntax must be in file named [Syntax.txt](https://github.com/OlivandoGit/Space-Cadets/blob/master/Challenge3/Syntax.txt) and be in the same directory as Main.java
